@@ -1,0 +1,33 @@
+<div class="well">
+    Welcome to Yeoman and Ember.js!
+</div>
+
+<form role="form">
+    <div class="form-group">
+        <label for="name">Name</label>
+        {{view Ember.TextField class="form-control" id="name" placeholder="Name" valueBinding="name"}}
+    </div>
+    <button {{action create}} type="submit" class="btn btn-default">Submit</button>
+</form>
+
+{{#each Emberworkshop.Storage.locations}}
+    {{#if name}}
+        <h2>{{name}}</h2>
+
+        {{#if weather.temp}}
+            <dl class="dl-horizontal">
+                <dt>Temperature</dt>
+                <dd>{{weather.temp}} °C</dd>
+
+                <dt>Coordinates</dt>
+                <dd>{{coords.lat}}, {{coords.lon}}</dd>
+            </dl>
+        {{else}}
+            Loading...
+        {{/if}}
+
+        {{#if coords.lat}}
+            {{view Emberworkshop.MapView coordsBinding="coords"}}
+        {{/if}}
+    {{/if}}
+{{/each}}
