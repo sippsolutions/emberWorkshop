@@ -27,7 +27,7 @@
         {{/if}}
 
         {{#if coords.lat}}
-            {{view Emberworkshop.MapView coordsBinding="coords"}}
+            {{view Emberworkshop.MapView coordsBinding="coords" nameBinding="name"}}
         {{/if}}
     {{/if}}
 {{/each}}
